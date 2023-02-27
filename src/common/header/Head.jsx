@@ -1,10 +1,11 @@
 import React from 'react'
+import ReactCountryFlag from 'react-country-flag'
 
 const Head = () => {
   return (
       <>
           <section className='head'>
-              <div className='container d-flex'>
+              <div className='container d_flex'>
                   <div className='left row'>
                       <i className='fa fa-phone'></i>
                       <label>+02/8345 1398 48</label>
@@ -14,9 +15,13 @@ const Head = () => {
                   <div className="right row RText">
                       <label>Theme FAQ's</label>
                       <label>Need Help</label>
-                      <span>🇬🇧</span>
-                      <label>EN</label>
-                      <span>🇺🇸</span>
+                      <span>
+                          <ReactCountryFlag countryCode='GB' svg />
+                      </span>
+                      <label>GBP</label>
+                      <span>
+                          <ReactCountryFlag countryCode='US' svg />
+                      </span>
                       <label>USD</label>
                   </div>
               </div>

@@ -1,15 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
 body {
-  margin: 0;
-  background-color: #3f3f3f;
+  font-family: 'Poppins', sans-serif;
+  border-color: #ffffff;
 }
 
+.background {
+  background-color: #f6f9fc;
+  padding: 50px;
+}
+
+.container {
+  max-width: 90%;
+  margin: auto;
+}
+
+.d_flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f_flex {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.RText {
+  text-align: right;
+}
+
+input, button {
+  border: none;
+  outline: none;
+  background-color: none;
+}
+
+.row {
+  width: 50%;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f3f5f9;
+  margin-left: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.boxShadow {
+  box-shadow: rgb(43, 52, 69 / 10%) 0 4px 16px;
+}
