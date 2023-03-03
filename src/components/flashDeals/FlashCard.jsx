@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 
 const NextArrow = (props) => {
-    const { onClick } = props
-    return (
-        <div className="control-btn" onClick={onClick}>
-            <button className="next">
-                <i className="fa fa-long-arrow-alt-right"></i>
-            </button>
-        </div>
-    )
-}
+  const { onClick } = props;
+  return (
+    <div className="control-btn" onClick={onClick}>
+      <button className="next">
+        <i className="fa fa-long-arrow-alt-right"></i>
+      </button>
+    </div>
+  );
+};
 
 const PrevArrow = (props) => {
   const { onClick } = props;
@@ -23,30 +23,36 @@ const PrevArrow = (props) => {
   );
 };
 
-const FlashCard = ({ productItems }) => {
-    const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-        slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />
-    };
+const FlashCard = ({ productItems, addToCart }) => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
 
   return (
     <>
       <Slider {...settings}>
         {productItems.map((productItem) => {
           return (
-            <div className="box">
+            <div className="box" key={productItem.id}>
               <div className="product mtop">
                 <div className="img">
                   <span className="discount">{productItem.discount}% Off</span>
                   <img src={productItem.cover} alt="" />
                   <div className="product-like">
-                    <label>0</label> <br />
-                    <i className="fa-regular fa-heart"></i>
+                    <label>{count}</label> <br />
+                    <i className="fa-regular fa-heart" onClick={increment}></i>
                   </div>
                 </div>
 
@@ -61,7 +67,7 @@ const FlashCard = ({ productItems }) => {
                   </div>
                   <div className="price">
                     <h4>{productItem.price}.00</h4>
-                    <button>
+                    <button onClick={() => addToCart(productItem)}>
                       <i className="fa fa-plus"></i>
                     </button>
                   </div>

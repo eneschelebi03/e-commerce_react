@@ -3,14 +3,13 @@ import Head from "./Head";
 import Navbar from "./Navbar";
 import Search from "./Search";
 
-import './Header.css'
+import "./Header.css";
 
-
-const Header = () => {
+const Header = ({ cartItem }) => {
   return (
     <>
       <Head />
-      <Search />
+      <Search cartItem={cartItem} />
       <Navbar />
     </>
   );
