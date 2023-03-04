@@ -1,35 +1,30 @@
 import React from "react";
-import Tdata from "./Tdata";
 import Slider from "react-slick";
+import Ddata from "./Ddata";
 
-import "./Style.css"
-
-const TopCart = () => {
+const Dcard = () => {
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 6,
     slidesToScroll: 1,
-    autoplay: true
+    autoplay: true,
   };
-
 
   return (
     <>
       <Slider {...settings}>
-        {Tdata.map((value, index) => {
+        {Ddata.map((val, index) => {
           return (
             <>
               <div className="box product" key={index}>
-                <div className="nametop d_flex">
-                  <span className="tleft">{value.para}</span>
-                  <span className="tright">{value.desc}</span>
-                </div>
                 <div className="img">
-                  <img src={value.cover} alt="" />
+                  <img src={val.cover} alt="" />
                 </div>
+                <h4>{val.name}</h4>
+                <span>{val.price}</span>
               </div>
             </>
           );
@@ -39,4 +34,4 @@ const TopCart = () => {
   );
 };
 
-export default TopCart;
+export default Dcard;
