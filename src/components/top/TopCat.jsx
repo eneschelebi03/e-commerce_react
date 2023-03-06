@@ -1,5 +1,5 @@
 import React from "react";
-import TopCart from "./TopCart";
+import TopCatCard from "./TopCatCard";
 
 const TopCate = () => {
   return (
@@ -16,7 +16,7 @@ const TopCate = () => {
               <i className="fa fa-caret-right"></i>
             </div>
           </div>
-          <TopCart />
+          <TopCatCard />
         </div>
       </section>
     </>

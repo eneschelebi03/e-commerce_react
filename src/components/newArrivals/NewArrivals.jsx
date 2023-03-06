@@ -1,9 +1,10 @@
 import React from "react";
-import Cart from "./Cart";
+import NewArrCard from "./NewArrCard";
 
 import "./style.css"
 
 const NewArrivals = () => {
+  
   return (
     <>
       <section className="newarrivals background">
@@ -18,7 +19,7 @@ const NewArrivals = () => {
               <i className="fa fa-caret-right"></i>
             </div>
           </div>
-          <Cart />
+          <NewArrCard />
         </div>
       </section>
     </>

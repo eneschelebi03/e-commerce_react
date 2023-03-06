@@ -166,6 +166,10 @@ button {
   margin: 10px;
 }
 
+.product .img img {
+ width: 100%;
+}
+
 .product h3 {
   font-weight: 400;
   font-size: 17px;
@@ -295,3 +299,10 @@ button {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
 } 
+
+.flexbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  column-gap: 10px;
+}

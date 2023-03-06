@@ -5,12 +5,44 @@ import Ddata from "./Ddata";
 const Dcard = () => {
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 850,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -19,7 +51,7 @@ const Dcard = () => {
         {Ddata.map((val, index) => {
           return (
             <>
-              <div className="box product" key={index}>
+              <div className="box product newarrivals" key={index}>
                 <div className="img">
                   <img src={val.cover} alt="" />
                 </div>
