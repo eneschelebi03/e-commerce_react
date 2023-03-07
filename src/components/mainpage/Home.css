@@ -47,6 +47,30 @@
   width: 30%;
 } 
 
+.homeSlide .box.small-screen {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
+}
+
+.homeSlide .box.small-screen .left {
+  width: 90%;
+  text-align: center;
+}
+
+.homeSlide .box.small-screen .left h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.homeSlide .box.small-screen .left p {
+  display: none;
+}
+
+.homeSlide .box.small-screen .right {
+  width: 60%;
+} 
+
 .homeSlide .box img {
   width: 100%;
   height: 100%;

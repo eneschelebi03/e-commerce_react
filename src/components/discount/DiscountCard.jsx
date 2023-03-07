@@ -1,11 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
+import AdCard from "../cards/AdCard";
 import Ddata from "./Ddata";
 
-const Dcard = () => {
-
+const DiscountCard = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
@@ -50,15 +50,7 @@ const Dcard = () => {
       <Slider {...settings}>
         {Ddata.map((val, index) => {
           return (
-            <>
-              <div className="box product newarrivals" key={index}>
-                <div className="img">
-                  <img src={val.cover} alt="" />
-                </div>
-                <h4>{val.name}</h4>
-                <span>{val.price}</span>
-              </div>
-            </>
+            <AdCard classes={"box product newarrivals"} data={val} id={index} />
           );
         })}
       </Slider>
@@ -66,4 +58,4 @@ const Dcard = () => {
   );
 };
 
-export default Dcard;
+export default DiscountCard;

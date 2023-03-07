@@ -1,18 +1,36 @@
-import React from 'react'
-import Categories from './Categories'
-import Slider from './Slider'
-import "./Home.css"
+import React, { useEffect, useState } from "react";
+import Categories from "./Categories";
+import Slider from "./Slider";
+import "./Home.css";
 const Home = () => {
-  return (
-      <>
-          <section className="home">
-              <div className="container d_flex">
-                  <Categories />
-                  <Slider />
-              </div>
-          </section>
-      </>
-  )
-}
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-export default Home
+  function handleResize() {
+    if (window.innerWidth < 1200) {
+      setIsSmallScreen(true);
+    } else {
+      setIsSmallScreen(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <>
+      <section className="home">
+        <div className="container d_flex">
+          {!isSmallScreen && <Categories />}
+          <Slider isSmallScreen={isSmallScreen} />
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Home;

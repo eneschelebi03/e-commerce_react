@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 const Footer = () => {
+
+  const [grid, setGrid] = useState("grid-4");
+
+  function handleResize() {
+    if (window.innerWidth < 550) {
+      setGrid("grid-1");
+    } else if (window.innerWidth < 900) {
+      setGrid("grid-2");
+    } else {
+      setGrid("grid-4");
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <footer>
-        <div className="container grid2">
+        <div className={`container ${grid}`}>
           <div className="box">
             <h1>Borcelle</h1>
             <p>

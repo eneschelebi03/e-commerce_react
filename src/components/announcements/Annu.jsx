@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./Announcement.css";
 
 const Annu = () => {
-  const myStyle = {
-    width: "30%",
-    height: "340px",
-  };
 
-  const myStyle1 = {
-    width: "68%",
-    height: "340px",
-  };
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  function handleResize() {
+    if (window.innerWidth < 768) {
+      setIsSmallScreen(true);
+    } else {
+      setIsSmallScreen(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
       <section className="annouc background">
-        <div className="container d_flex">
-          <div className="img" style={myStyle}>
+        <div className={`container ${isSmallScreen && "small-screen"} d_flex`}>
+          <div className="img-small">
             <img
               src="./images/banner-1.png"
               alt=""
@@ -23,7 +33,7 @@ const Annu = () => {
               height="100%"
             />
           </div>
-          <div className="img" style={myStyle1}>
+          <div className="img-big">
             <img
               src="./images/banner-2.png"
               alt=""

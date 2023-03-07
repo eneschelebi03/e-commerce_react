@@ -1,0 +1,25 @@
+.img-big {
+  width: 68%;
+  height: 340px;
+}
+
+.img-small {
+  width: 30%;
+  height: 340px;
+}
+
+.annouc .container.small-screen {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.annouc .container.small-screen .img-big {
+  width: 100%;
+  height: auto;
+}
+
+.annouc .container.small-screen .img-small {
+  width: 100%;
+  height: auto;
+}

@@ -14,34 +14,34 @@ function App() {
 
   const { shopItems } = Sdata;
 
-  const [cartItem, setCartItem] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
-    const productExit = cartItem.find((item) => item.id === product.id);
+    const productExit = cartItems.find((item) => item.id === product.id);
 
     if (productExit) {
-      setCartItem(
-        cartItem.map((item) =>
+      setCartItems(
+        cartItems.map((item) =>
           item.id === product.id
             ? { ...productExit, qty: productExit.qty + 1 }
             : item
         )
       );
     } else {
-      setCartItem([...cartItem, { ...product, qty: 1 }]);
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
 
   const decreaseQty = (product) => {
-    const productExit = cartItem.find((item) => item.id === product.id);
+    const productExit = cartItems.find((item) => item.id === product.id);
 
     if (productExit.qty === 1) {
-      setCartItem((prevCartItem) =>
+      setCartItems((prevCartItem) =>
         prevCartItem.filter((item) => item.id !== product.id)
       );
     } else {
-      setCartItem(
-        cartItem.map((item) =>
+      setCartItems(
+        cartItems.map((item) =>
           item.id === product.id
             ? { ...productExit, qty: productExit.qty - 1 }
             : item
@@ -53,13 +53,13 @@ function App() {
   return (
     <>
       <Router>
-        <Header cartItem={cartItem} />
+        <Header cartItem={cartItems} />
         <Switch>
           <Route path="/" exact>
             <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />
           </Route>
           <Route path="/cart" exact>
-            <Cart cartItem={cartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+            <Cart cartItem={cartItems} addToCart={addToCart} decreaseQty={decreaseQty} />
           </Route>
         </Switch>
         <Footer />

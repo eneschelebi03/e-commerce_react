@@ -1,5 +1,5 @@
 import React from "react";
-import Dcard from "./Dcard";
+import Dcard from "./DiscountCard";
 
 const Discount = () => {
   return (

@@ -1,12 +1,21 @@
 import React from 'react'
-import SlideCard from './SlideCard';
+import SliderContent from './SliderContent';
 
-const Slider = () => {
+const Slider = (props) => {
+  
+
+  let width = "77%"
+
+  if (props.isSmallScreen) {
+    width = "100%"
+  }
+
+
   return (
     <>
-      <section className="homeSlide contentWidth">
-        <div className="container">
-          <SlideCard />
+      <section className="homeSlide" style={{width: width}}>
+        <div className={!props.isSmallScreen && "container"}>
+          <SliderContent />
         </div>
       </section>
     </>

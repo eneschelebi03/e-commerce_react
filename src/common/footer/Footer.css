@@ -4,8 +4,32 @@ footer {
     color: #fff;
 }
 
+footer .grid-1 {
+    row-gap: 60px;
+}
 
-footer .box:nth-child(1) {
+footer .grid-1 .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .grid-1 .box:first-child {
+    margin-right: 0;
+}
+
+footer .grid-1 .box:first-child p {
+    width: 90%;
+    text-align: center;
+}
+
+footer .grid-1 .box ul {
+    text-align: center;
+}
+
+
+footer .box:first-child {
     margin-right: 30px;
 }
 
