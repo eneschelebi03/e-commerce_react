@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import Categories from "../../components/mainpage/Categories";
+import Backdrop from "../helpers/Bakcdrop";
 
-const Navbar = ({mobileMenu}) => {
+
+
+const Navbar = (props) => {
   const [activeCategories, setActiveCategories] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isNavbarHidden, setIsNavbarHidden] = useState(false);
 
-
   function activateCategories() {
     if (window.innerWidth < 1200) {
-      setActiveCategories(activeCategories => !activeCategories);
+      setActiveCategories((activeCategories) => !activeCategories);
     }
   }
 
@@ -18,7 +21,7 @@ const Navbar = ({mobileMenu}) => {
     if (window.innerWidth > 1200) {
       setActiveCategories(true);
       setIsSmallScreen(false);
-    }  else {
+    } else {
       setActiveCategories(false);
       setIsSmallScreen(true);
     }
@@ -38,26 +41,45 @@ const Navbar = ({mobileMenu}) => {
     };
   }, []);
 
+  if (props.mobileMenu && isNavbarHidden) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
 
   return (
     <>
       <header className={`header ${isNavbarHidden && "hidden"}`}>
         <div className="container d_flex">
-          {!isNavbarHidden && <div
-            className={`category-btn ${activeCategories && "active"} d_flex`}
-            onClick={activateCategories}
-          >
-            <span class="material-icons-round">menu</span>
-            <h4>Categories</h4>
-          </div>
-          }
+          {!isNavbarHidden && (
+            <div
+              className={`category-btn ${activeCategories && "active"} d_flex`}
+              onClick={activateCategories}
+            >
+              <span className="material-icons-round">menu</span>
+              <h4>Categories</h4>
+            </div>
+          )}
+          {!isNavbarHidden && (
+            <Categories isActive={activeCategories && isSmallScreen} />
+          )}
+          {/* "nav-links__mobile-menu" : "link f_flex capitalize " */}
 
-          {!isNavbarHidden && <Categories isActive={activeCategories && isSmallScreen} />}
-          
-
-          <div className="nav-links"
-          >
-            <ul className={mobileMenu ? "nav-links__mobile-menu" : "link f_flex capitalize "}>
+          {isNavbarHidden &&
+            props.mobileMenu &&
+            ReactDOM.createPortal(
+              <Backdrop onToggle={props.onToggleNavbar} />,
+              document.getElementById("backdrop-root")
+            )}
+          <div className="nav-links">
+            <ul
+              onClick={props.onToggleNavbar}
+              className={
+                isNavbarHidden
+                  ? `nav-links__mobile-menu ${props.mobileMenu && "active"}`
+                  : "link f_flex capitalize "
+              }
+            >
               <li>
                 <Link to="/">home</Link>
               </li>
@@ -85,4 +107,3 @@ const Navbar = ({mobileMenu}) => {
 };
 
 export default Navbar;
-
