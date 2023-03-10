@@ -1,7 +1,7 @@
 import React from "react";
 import NewArrCard from "./NewArrCard";
 
-import "./style.css"
+import "./NewArrivals.css"
 
 const NewArrivals = () => {
   

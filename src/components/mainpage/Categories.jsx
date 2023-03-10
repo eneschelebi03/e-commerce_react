@@ -1,6 +1,6 @@
 import React from "react";
 
-const Categories = () => {
+const Categories = (props) => {
   const data = [
     {
       cateImg: "./images/category/cat1.png",
@@ -50,7 +50,7 @@ const Categories = () => {
 
   return (
     <>
-      <div className="category">
+      <div className={`categories ${props.isActive && "active"}`}>
         {data.map((value, index) => {
           return (
             <div className="box f_flex" key={index}>

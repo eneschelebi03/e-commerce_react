@@ -2,7 +2,7 @@ import React from "react";
 import Tdata from "./Tdata";
 import Slider from "react-slick";
 
-import "./Style.css"
+import "./TopCat.css"
 
 const TopCart = () => {
 

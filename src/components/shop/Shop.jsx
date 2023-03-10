@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Catg from "./Catg";
 import ShopCard from "./ShopCard";
-import "./Style.css";
+import "./Shop.css";
 
 const Shop = ({ shopItems, addToCart }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);

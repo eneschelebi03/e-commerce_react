@@ -1,27 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Categories from "../../components/mainpage/Categories";
 
-const Navbar = () => {
-  const [MobileMenu, setMobileMenu] = useState(false);
+const Navbar = ({mobileMenu}) => {
+  const [activeCategories, setActiveCategories] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isNavbarHidden, setIsNavbarHidden] = useState(false);
+
+
+  function activateCategories() {
+    if (window.innerWidth < 1200) {
+      setActiveCategories(activeCategories => !activeCategories);
+    }
+  }
+
+  function handleResize() {
+    if (window.innerWidth > 1200) {
+      setActiveCategories(true);
+      setIsSmallScreen(false);
+    }  else {
+      setActiveCategories(false);
+      setIsSmallScreen(true);
+    }
+
+    if (window.innerWidth < 1111) {
+      setIsNavbarHidden(true);
+    } else {
+      setIsNavbarHidden(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
 
   return (
     <>
-      <header className="header">
+      <header className={`header ${isNavbarHidden && "hidden"}`}>
         <div className="container d_flex">
-          <div className="categories d_flex">
-            <span class="material-icons-round">border_all</span>
-            <h4>
-              Categories<i className="fa fa-chevron-down"></i>
-            </h4>
+          {!isNavbarHidden && <div
+            className={`category-btn ${activeCategories && "active"} d_flex`}
+            onClick={activateCategories}
+          >
+            <span class="material-icons-round">menu</span>
+            <h4>Categories</h4>
           </div>
+          }
 
-          <div className="navlink">
-            <ul
-              className={
-                MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize "
-              }
-              onClick={() => setMobileMenu(false)}
-            >
+          {!isNavbarHidden && <Categories isActive={activeCategories && isSmallScreen} />}
+          
+
+          <div className="nav-links"
+          >
+            <ul className={mobileMenu ? "nav-links__mobile-menu" : "link f_flex capitalize "}>
               <li>
                 <Link to="/">home</Link>
               </li>
@@ -41,17 +77,6 @@ const Navbar = () => {
                 <Link to="/contact">contact</Link>
               </li>
             </ul>
-
-            <button
-              className="toggle"
-              onClick={() => setMobileMenu(!MobileMenu)}
-            >
-              {MobileMenu ? (
-                <i className="fas fa-times close home-btn"></i>
-              ) : (
-                <i className="fa-solid fa-bars open"></i>
-              )}
-            </button>
           </div>
         </div>
       </header>
@@ -60,3 +85,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
 import WrapperCard from "./WrapperCard";
+
+import "./Wrapper.css";
 
 const Wrapper = () => {
   const data = [
