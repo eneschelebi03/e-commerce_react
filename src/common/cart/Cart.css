@@ -102,3 +102,21 @@
     margin-top: 30px;
     height: 130px;
 }
+
+@media (max-width: 768px) {
+    .cart-items .container.d_flex {
+        width: 100%;
+        flex-direction: column;
+        /* gap: 40px; */
+    }
+
+    .cart-items .cart-details,
+    .cart-items .cart-total {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .cart-details .no-items {
+        margin: 0;
+    }
+}
