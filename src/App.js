@@ -17,19 +17,19 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product) => {
+  const addToCart = (product, qty) => {
     const productExit = cartItems.find((item) => item.id === product.id);
 
     if (productExit) {
       setCartItems(
         cartItems.map((item) =>
           item.id === product.id
-            ? { ...productExit, qty: productExit.qty + 1 }
+            ? { ...productExit, qty: productExit.qty + (qty ? qty : 1) }
             : item
         )
       );
     } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
+      setCartItems([...cartItems, { ...product, qty: qty ? qty : 1 }]);
     }
   };
 
@@ -57,13 +57,21 @@ function App() {
         <Header cartItem={cartItems} />
         <Switch>
           <Route path="/" exact>
-            <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />
+            <Pages
+              productItems={productItems}
+              addToCart={addToCart}
+              shopItems={shopItems}
+            />
           </Route>
           <Route path="/cart" exact>
-            <Cart cartItem={cartItems} addToCart={addToCart} decreaseQty={decreaseQty} />
+            <Cart
+              cartItem={cartItems}
+              addToCart={addToCart}
+              decreaseQty={decreaseQty}
+            />
           </Route>
           <Route path="/products/:productId">
-            <ProductDetails />
+            <ProductDetails onAddToCart={addToCart} />
           </Route>
         </Switch>
         <Footer />
