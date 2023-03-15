@@ -4,8 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import Categories from "../../components/mainpage/Categories";
 import Backdrop from "../helpers/Bakcdrop";
 
-
-
 const Navbar = (props) => {
   const [activeCategories, setActiveCategories] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -19,8 +17,10 @@ const Navbar = (props) => {
   }
 
   function handleResize() {
-    if (window.innerWidth > 1200) {
-      setActiveCategories(true);
+    if (window.innerWidth >= 1200) {
+      if (location.pathname === "/") {
+        setActiveCategories(true);
+      }
       setIsSmallScreen(false);
     } else {
       setActiveCategories(false);
@@ -37,10 +37,12 @@ const Navbar = (props) => {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     handleResize();
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+    // eslint-disable-next-line
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.pathname !== "/") {
@@ -70,19 +72,23 @@ const Navbar = (props) => {
             </div>
           )}
           {!isNavbarHidden && (
-            <Categories isActive={activeCategories && (isSmallScreen || location.pathname !== "/")} />
+            <Categories
+              isActive={
+                activeCategories && (isSmallScreen || location.pathname !== "/")
+              }
+            />
           )}
           {/* "nav-links__mobile-menu" : "link f_flex capitalize " */}
 
           {isNavbarHidden &&
             props.mobileMenu &&
             ReactDOM.createPortal(
-              <Backdrop onToggle={props.onToggleNavbar} />,
+              <Backdrop onToggle={props.onHideNavbar} />,
               document.getElementById("backdrop-root")
             )}
           <div className="nav-links">
             <ul
-              onClick={props.onToggleNavbar}
+              onClick={props.onHideNavbar}
               className={
                 isNavbarHidden
                   ? `nav-links__mobile-menu ${props.mobileMenu && "active"}`

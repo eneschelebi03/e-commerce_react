@@ -43,6 +43,11 @@ body {
   flex-direction: column;
 }
 
+.jc_flex {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -182,6 +187,7 @@ button {
   font-weight: bold;
   color: #fff;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .top {
@@ -329,6 +335,8 @@ button {
 
 .heading .heading-right span {
   color: #e94560;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 /* <----------- Heading -----------> */
@@ -337,13 +345,6 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-}
-
-.flexbox {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  column-gap: 10px;
 }
 
 /* <----------- Responsive -----------> */

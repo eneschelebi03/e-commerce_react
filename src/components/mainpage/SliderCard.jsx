@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const SliderCard = (props) => {
 
@@ -26,7 +27,9 @@ const SliderCard = (props) => {
           <div className="left">
             <h1>{props.slide.title}</h1>
             <p>{props.slide.desc}</p>
-            <button className="btn-primary">Visit Collections</button>
+            <Link to="/products">
+              <button className="btn-primary">Visit Collections</button>
+            </Link>
           </div>
 
           <div className="right">

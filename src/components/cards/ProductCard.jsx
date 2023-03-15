@@ -8,9 +8,8 @@ const ProductCard = (props) => {
     setCount((prevCount) => prevCount + 1);
   };
 
-  const addToCart = (event) => {
+  const addToCart = () => {
     props.onAddToCart(props.item);
-    // event.stopPropagation();
   };
 
   return (

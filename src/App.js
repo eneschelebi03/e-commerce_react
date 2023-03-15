@@ -8,6 +8,7 @@ import Cart from "./common/cart/Cart";
 import Sdata from "./components/shop/Sdata";
 import Footer from "./common/footer/Footer";
 import ProductPage from "./components/product/ProductPage";
+import ListingPage from "./components/product/listing/ListingPage";
 
 function App() {
   // todo: fetch from database
@@ -72,6 +73,9 @@ function App() {
           </Route>
           <Route path="/products/:productId">
             <ProductPage onAddToCart={addToCart} productItems={productItems} />
+          </Route>
+          <Route path="/products">
+            <ListingPage onAddToCart={addToCart} productItems={productItems} />
           </Route>
         </Switch>
         <Footer />

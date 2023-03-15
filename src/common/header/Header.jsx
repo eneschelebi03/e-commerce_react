@@ -31,6 +31,7 @@ const Header = ({ cartItem }) => {
       <Navbar
         mobileMenu={mobileMenu}
         onToggleNavbar={navbarHandler}
+        onHideNavbar={hideNavbarHandler}
       />
     </>
   );
