@@ -38,6 +38,11 @@ body {
   display: flex;
 }
 
+.col_flex {
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -320,6 +325,10 @@ button {
 .heading .heading-right i {
   text-align: right;
   color: grey;
+}
+
+.heading .heading-right span {
+  color: #e94560;
 }
 
 /* <----------- Heading -----------> */

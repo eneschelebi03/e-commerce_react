@@ -8,40 +8,43 @@ const ProductCard = (props) => {
     setCount((prevCount) => prevCount + 1);
   };
 
-  const addToCart = () => {
+  const addToCart = (event) => {
     props.onAddToCart(props.item);
+    // event.stopPropagation();
   };
 
   return (
-    <Link to={`/products/${props.item.id}`}>
-      <div className="product mtop box">
-        <div className="img">
+    <div className="product mtop box">
+      <div className="img">
+        <div className="product-like">
+          <label>{count}</label> <br />
+          <i className="fa-regular fa-heart" onClick={increment}></i>
+        </div>
+        <Link to={`/products/${props.item.id}`}>
           <span className="discount">{props.item.discount}% Off</span>
           <img src={props.item.cover} alt="" />
-          <div className="product-like">
-            <label>{count}</label> <br />
-            <i className="fa-regular fa-heart" onClick={increment}></i>
-          </div>
-        </div>
 
-        <div className="product-details">
           <h3>{props.item.name}</h3>
-          <div className="rate">
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-          </div>
-          <div className="price">
-            <h4>{props.item.price}.00</h4>
-            <button onClick={addToCart}>
-              <i className="fa fa-plus"></i>
-            </button>
-          </div>
+        </Link>
+      </div>
+
+      <div className="product-details">
+        <div className="rate">
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
         </div>
       </div>
-    </Link>
+
+      <div className="price">
+        <h4>{props.item.price}.00</h4>
+        <button onClick={addToCart}>
+          <i className="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
   );
 };
 

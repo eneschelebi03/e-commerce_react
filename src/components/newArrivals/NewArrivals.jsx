@@ -1,24 +1,22 @@
 import React from "react";
+import Heading from "../../common/heading/Heading";
 import NewArrCard from "./NewArrCard";
 
 import "./NewArrivals.css"
 
 const NewArrivals = () => {
+
+
+  const icon = (
+    <img src="https://img.icons8.com/glyph-neue/64/26e07f/new.png" alt="New"/>
+  );
+  const heading = "New Arrivals"
   
   return (
     <>
       <section className="newarrivals background">
         <div className="container">
-          <div className="heading d_flex">
-            <div className="heading-left row f_flex">
-              <img src="https://img.icons8.com/glyph-neue/64/26e07f/new.png" alt=""/>
-              <h2>New Arrivals</h2>
-            </div>
-            <div className="heading-right row">
-              <span>View all</span>
-              <i className="fa fa-caret-right"></i>
-            </div>
-          </div>
+          <Heading icon={icon} heading={heading} />
           <NewArrCard />
         </div>
       </section>

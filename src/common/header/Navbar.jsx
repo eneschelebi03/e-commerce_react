@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Categories from "../../components/mainpage/Categories";
 import Backdrop from "../helpers/Bakcdrop";
 
@@ -10,9 +10,10 @@ const Navbar = (props) => {
   const [activeCategories, setActiveCategories] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isNavbarHidden, setIsNavbarHidden] = useState(false);
+  const location = useLocation();
 
   function activateCategories() {
-    if (window.innerWidth < 1200) {
+    if (window.innerWidth < 1200 || location.pathname !== "/") {
       setActiveCategories((activeCategories) => !activeCategories);
     }
   }
@@ -41,6 +42,14 @@ const Navbar = (props) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveCategories(false);
+    } else {
+      setActiveCategories(true);
+    }
+  }, [location.pathname]);
+
   if (props.mobileMenu && isNavbarHidden) {
     document.body.style.overflow = "hidden";
   } else {
@@ -61,7 +70,7 @@ const Navbar = (props) => {
             </div>
           )}
           {!isNavbarHidden && (
-            <Categories isActive={activeCategories && isSmallScreen} />
+            <Categories isActive={activeCategories && (isSmallScreen || location.pathname !== "/")} />
           )}
           {/* "nav-links__mobile-menu" : "link f_flex capitalize " */}
 

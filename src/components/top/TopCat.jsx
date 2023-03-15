@@ -1,21 +1,15 @@
 import React from "react";
+import Heading from "../../common/heading/Heading";
 import TopCatCard from "./TopCatCard";
 
 const TopCate = () => {
+  const icon = <i className="fa fa-border-all"></i>;
+
   return (
     <>
       <section className="topCat background">
         <div className="container">
-          <div className="heading d_flex">
-            <div className="heading-left row f_flex">
-              <i className="fa fa-border-all"></i>
-              <h2>Top Categories</h2>
-            </div>
-            <div className="heading-right row">
-              <span>View all</span>
-              <i className="fa fa-caret-right"></i>
-            </div>
-          </div>
+          <Heading icon={icon} heading="Top Categories"/>
           <TopCatCard />
         </div>
       </section>

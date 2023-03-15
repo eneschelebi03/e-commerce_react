@@ -7,6 +7,7 @@
   --LightGrayishBlue: hsl(223, 64%, 98%);
 }
 
+/* <------------------- Product Details -------------------> */
 .hero-sec {
   height: auto;
 }
@@ -211,7 +212,27 @@
   opacity: 0.5;
 }
 
+/* <------------------- Product Details -------------------> */
+
+/* <------------------- Related Products -------------------> */
+
+.container.related {
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+.related .heading .heading-left {
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* <------------------- Related Products-------------------> */
+
+
 @media (max-width: 1300px) {
+
+/* <------------------- Product Details -------------------> */
+
   .hero-row {
     height: 90vh;
   }
@@ -257,6 +278,9 @@
   }
 }
 @media (max-width: 768px) {
+
+/* <------------------- Product Details -------------------> */
+
   .hero-row {
     flex-direction: column;
     height: auto;
@@ -339,6 +363,9 @@
   }
 }
 @media (max-width: 520px) {
+
+/* <------------------- Product Details -------------------> */
+
   .col2-wrapper {
     width: 95%;
   }

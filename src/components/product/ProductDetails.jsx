@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 
 import ProductImages from "./ProductImages";
-import Data from "../flashDeals/Data";
-import "./ProductDetails.css";
 
 const ProductDetails = (props) => {
   const [qty, setQty] = useState(1);
@@ -25,16 +22,11 @@ const ProductDetails = (props) => {
     }
   };
 
-  const { productId } = useParams();
-  const product = Data.productItems.find(
-    (prod) => prod.id === parseInt(productId)
-  );
+  const product = props.product
 
   const addToCart = () => {
     props.onAddToCart(product, qty);
   };
-
-  console.log(productId);
 
   return (
     <>

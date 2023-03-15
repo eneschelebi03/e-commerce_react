@@ -7,7 +7,7 @@ import Data from "./components/flashDeals/Data";
 import Cart from "./common/cart/Cart";
 import Sdata from "./components/shop/Sdata";
 import Footer from "./common/footer/Footer";
-import ProductDetails from "./components/product/ProductDetails";
+import ProductPage from "./components/product/ProductPage";
 
 function App() {
   // todo: fetch from database
@@ -71,7 +71,7 @@ function App() {
             />
           </Route>
           <Route path="/products/:productId">
-            <ProductDetails onAddToCart={addToCart} />
+            <ProductPage onAddToCart={addToCart} productItems={productItems} />
           </Route>
         </Switch>
         <Footer />
