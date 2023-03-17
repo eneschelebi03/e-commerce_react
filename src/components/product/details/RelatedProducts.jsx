@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../cards/ProductCard";
+import ProductCard from "../../cards/ProductCard";
 
 const RelatedProducts = ({ productItems, onAddToCart }) => {
   const onAddToCartHandler = (item) => {

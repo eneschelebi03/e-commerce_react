@@ -7,7 +7,7 @@ import Data from "./components/flashDeals/Data";
 import Cart from "./common/cart/Cart";
 import Sdata from "./components/shop/Sdata";
 import Footer from "./common/footer/Footer";
-import ProductPage from "./components/product/ProductPage";
+import ProductPage from "./components/product/details/ProductPage";
 import ListingPage from "./components/product/listing/ListingPage";
 
 function App() {

@@ -1,8 +1,11 @@
 import React from 'react'
+import PriceFilter from './PriceFilter'
 
 const Filters = () => {
   return (
-    <div>Filters</div>
+    <>
+      <PriceFilter />
+    </>
   )
 }
 

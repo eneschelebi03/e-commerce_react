@@ -1,5 +1,5 @@
 import React from 'react'
-import Filters from './Filters';
+import Filters from './filters/Filters';
 import ProductListing from './ProductListing'
 
 const ListingPage = (props) => {
