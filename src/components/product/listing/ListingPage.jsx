@@ -8,9 +8,11 @@ const ListingPage = (props) => {
 
   return (
     <>
-      <div className="container jc_flex ">
-        <Filters />
-        <ProductListing productItems={props.productItems} />
+      <div className="background">
+        <div className="container jc_flex ">
+          <Filters />
+          <ProductListing productItems={props.productItems} />
+        </div>
       </div>
     </>
   );
