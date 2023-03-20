@@ -32,6 +32,10 @@ const Filters = (props) => {
     document.body.style.overflow = "";
   }
 
+  const priceFilterHandler = (min, max) => {
+    props.onPriceRangeChange(min, max)
+  }
+
   return (
     <>
       <div
@@ -44,8 +48,8 @@ const Filters = (props) => {
             <Backdrop onToggle={props.onHideFilter} />,
             document.getElementById("backdrop-root")
           )}
-        <PriceFilter />
-        <GenderFilter />
+        <PriceFilter onFilter={priceFilterHandler} />
+        <GenderFilter  />
         <ColorFilter />
         <ManufacturerFilter />
       </div>

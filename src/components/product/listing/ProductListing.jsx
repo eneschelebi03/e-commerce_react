@@ -36,8 +36,8 @@ const ProductListing = (props) => {
   }, []);
 
   const handleFilters = () => {
-    props.onToggleFilters()
-  }
+    props.onToggleFilters();
+  };
 
   const heading = "Mobile Phones";
 

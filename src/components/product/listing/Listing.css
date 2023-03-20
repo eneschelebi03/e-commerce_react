@@ -1,11 +1,11 @@
 /* <------------------- Listings -------------------> */
-.listing-page-container  {
- width: fit-content;
+.listing-page-container {
+  width: fit-content;
   width: 70%;
 }
 
 .listing-page-container .heading {
- background-color: #ffffff;
+  background-color: #ffffff;
 
   margin-left: 15px;
   margin-bottom: 15px;
@@ -80,7 +80,33 @@
 
 .custom .MuiFormControlLabel-label {
   color: #6a6a6a;
-  font-size: 14px ;
+  font-size: 14px;
 }
 
+@media (max-width: 900px) {
+  .listing-page-container {
+    width: 100%;
+  }
+}
 
+@media (max-width: 600px) {
+  .background.listing {
+    padding: 0;
+    padding-top: 15px;
+  }
+
+  .container.listing {
+    width: 100%;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .listing-page-container .heading h1 {
+    font-size: 22px;
+  }
+
+  .filter-btn {
+    font-size: 14px;
+  }
+}
