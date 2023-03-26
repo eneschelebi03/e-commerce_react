@@ -12,6 +12,7 @@ const Data = {
       ],
       name: "Shoes",
       price: 100,
+      gender: "Men",
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ const Data = {
       ],
       name: "Watch",
       price: 20,
+      gender: "Men",
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ const Data = {
       ],
       name: "Smart Mobile Black",
       price: 200,
+      gender: "Women",
     },
     {
       id: 4,
@@ -51,6 +54,7 @@ const Data = {
       ],
       name: "Smart Watch Black",
       price: 50,
+      gender: "Women",
     },
     {
       id: 5,
@@ -64,6 +68,7 @@ const Data = {
       ],
       name: "Shoes",
       price: 100,
+      gender: "Men",
     },
     {
       id: 6,
@@ -77,6 +82,7 @@ const Data = {
       ],
       name: "Shoes",
       price: 100,
+      gender: "Women",
     },
   ],
 };

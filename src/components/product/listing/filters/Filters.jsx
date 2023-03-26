@@ -36,6 +36,12 @@ const Filters = (props) => {
     props.onPriceRangeChange(min, max)
   }
 
+  const genderFilterHandler = ([menCheck, womenCheck]) => {
+    props.onGenderFilter([menCheck, womenCheck])
+  }
+
+
+
   return (
     <>
       <div
@@ -49,7 +55,7 @@ const Filters = (props) => {
             document.getElementById("backdrop-root")
           )}
         <PriceFilter onFilter={priceFilterHandler} />
-        <GenderFilter  />
+        <GenderFilter onGenderFilter={genderFilterHandler} />
         <ColorFilter />
         <ManufacturerFilter />
       </div>

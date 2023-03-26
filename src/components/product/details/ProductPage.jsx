@@ -14,12 +14,12 @@ const ProductPage = (props) => {
   };
     const { productId } = useParams();
     
-    const productItems = props.productItems.slice(0, 4)
-        .map(product => {
+      const productItems = props.productItems.slice(0, 4)
+          .map(product => {
             return {...product, cover: "." + product.cover}
     })
 
-  const product = productItems.find(
+  const product = props.productItems.find(
     (prod) => prod.id === parseInt(productId)
     );
 

@@ -5,6 +5,11 @@ import CheckBoxIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import { CheckBoxRounded } from "@mui/icons-material";
 
 const FilterOption = (props) => {
+
+   const handleChange = (event) => {
+     props.onCheck(event.target.checked);
+  }; 
+  
   const controlRadio = (
     <Radio
       icon={
@@ -38,6 +43,7 @@ const FilterOption = (props) => {
           }}
         />
       }
+      onChange={handleChange}
     />
   );
 
@@ -50,6 +56,8 @@ const FilterOption = (props) => {
   }
 
   const value = props.value;
+
+
 
   return (
     <FormControlLabel
