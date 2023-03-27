@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Filters from "./filters/Filters";
 import ProductListing from "./ProductListing";
 
@@ -32,8 +32,6 @@ const ListingPage = (props) => {
       min: min,
       max: max,
     }));
-
-    filterProducts();
   };
 
   const genderHandler = ([menCheck, womenCheck]) => {
@@ -42,37 +40,38 @@ const ListingPage = (props) => {
       men: menCheck,
       women: womenCheck,
     }));
-
-    filterProducts();
   };
 
   const filterProducts = () => {
     console.log("filtering");
-    setFilteredProducts(products);
+    let filteredProducts = products;
 
-    setFilteredProducts((filterProducts) =>
-      filterProducts.filter(
-        (product) =>
-          product.price >= priceRange.min && product.price <= priceRange.max
-      )
+    filteredProducts = filteredProducts.filter(
+      (product) =>
+        product.price >= priceRange.min && product.price <= priceRange.max
     );
 
     if (gender.men && !gender.women) {
-      setFilteredProducts((filterProducts) =>
-        filterProducts.filter((product) => product.gender === "Men")
+      filteredProducts = filteredProducts.filter(
+        (product) => product.gender === "Men"
       );
     } else if (!gender.men && gender.women) {
-      setFilteredProducts((filterProducts) =>
-        filterProducts.filter((product) => product.gender === "Women")
+      filteredProducts = filteredProducts.filter(
+        (product) => product.gender === "Women"
       );
     } else {
-      setFilteredProducts((filterProducts) =>
-        filterProducts.filter(
-          (product) => product.gender === "Women" || product.gender === "Men"
-        )
+      filteredProducts = filteredProducts.filter(
+        (product) => product.gender === "Women" || product.gender === "Men"
       );
     }
+
+    setFilteredProducts(filteredProducts);
   };
+
+  useEffect(() => {
+    filterProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products, priceRange, gender]);
 
   return (
     <>
