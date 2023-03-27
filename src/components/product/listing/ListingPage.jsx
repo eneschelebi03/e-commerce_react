@@ -6,9 +6,9 @@ const ListingPage = (props) => {
   const products = props.productItems;
   const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const [priceRange, setPriceRange] = useState({min: 1, max: 9999999})
+  const [priceRange, setPriceRange] = useState({ min: 1, max: 9999999 });
 
-  const [gender, setGender] = useState({men: false, women: false});
+  const [gender, setGender] = useState({ men: false, women: false });
 
   const [isFilterActive, setIsFilterActive] = useState(false);
 
@@ -27,31 +27,33 @@ const ListingPage = (props) => {
   };
 
   const priceHandler = (min, max) => {
-    setPriceRange(prevRange => ({
+    setPriceRange((prevRange) => ({
       ...prevRange,
       min: min,
-      max: max
-    }))
+      max: max,
+    }));
 
     filterProducts();
   };
 
   const genderHandler = ([menCheck, womenCheck]) => {
-    setGender(prevGender => ({
+    setGender((prevGender) => ({
       ...prevGender,
       men: menCheck,
-      women: womenCheck
+      women: womenCheck,
     }));
-    
+
     filterProducts();
   };
 
   const filterProducts = () => {
+    console.log("filtering");
     setFilteredProducts(products);
 
     setFilteredProducts((filterProducts) =>
       filterProducts.filter(
-        (product) => product.price >= priceRange.min && product.price <= priceRange.max
+        (product) =>
+          product.price >= priceRange.min && product.price <= priceRange.max
       )
     );
 
@@ -71,9 +73,6 @@ const ListingPage = (props) => {
       );
     }
   };
-
-
-
 
   return (
     <>
